@@ -9,5 +9,8 @@
 # ant design setting
 - npm i --save ant-design-vue@next
 
+# vue router setting
+- npm i vue-router@next
+
 # 서버 기동
 - npm run serve
