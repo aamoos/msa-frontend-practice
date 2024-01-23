@@ -1,11 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Main from "@/components/MainComponent.vue";
+import BindComponent from "@/components/BindComponent.vue";
 
 const routes = [
     {
-        path: "/",  // TestComponent.vue로 이동할 Path
-        name: "Main",  // router name
-        component: Main,  // Path로 이동될 Component
+        path: "/BindComponent",  // TestComponent.vue로 이동할 Path
+        name: "BindComponent",  // router name
+        component: BindComponent,  // Path로 이동될 Component
     },
 ];
 
