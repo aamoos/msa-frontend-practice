@@ -34,24 +34,38 @@
                   started
                 </span>
               </template>
-              <router-link to="/BindComponent">
+              <router-link to="/">
                 <a-menu-item key="1">bind</a-menu-item>
               </router-link>
-              <a-menu-item key="2">option2</a-menu-item>
-              <a-menu-item key="3">option3</a-menu-item>
-              <a-menu-item key="4">option4</a-menu-item>
+              <router-link to="/started/IfComponent">
+                <a-menu-item key="2">v-if</a-menu-item>
+              </router-link>
+              <router-link to="/started/ForComponent">
+                <a-menu-item key="3">v-for</a-menu-item>
+              </router-link>
+              <router-link to="/started/ClickComponent">
+                <a-menu-item key="4">click</a-menu-item>
+              </router-link>
             </a-sub-menu>
             <a-sub-menu key="sub2">
               <template #title>
                 <span>
                   <laptop-outlined />
-                  subnav 2
+                  axios
                 </span>
               </template>
-              <a-menu-item key="5">option5</a-menu-item>
-              <a-menu-item key="6">option6</a-menu-item>
-              <a-menu-item key="7">option7</a-menu-item>
-              <a-menu-item key="8">option8</a-menu-item>
+              <router-link to="/axios/ListComponent">
+                <a-menu-item key="5">list</a-menu-item>
+              </router-link>
+              <router-link to="/axios/InsertComponent">
+                <a-menu-item key="6">insert</a-menu-item>
+              </router-link>
+              <router-link to="/axios/UpdateComponent">
+                <a-menu-item key="7">update</a-menu-item>
+              </router-link>
+              <router-link to="/axios/DeleteComponent">
+                <a-menu-item key="8">delete</a-menu-item>
+              </router-link>
             </a-sub-menu>
             <a-sub-menu key="sub3">
               <template #title>
