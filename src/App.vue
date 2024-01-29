@@ -55,16 +55,10 @@
                 </span>
               </template>
               <router-link to="/axios/ListComponent">
-                <a-menu-item key="5">list</a-menu-item>
+                <a-menu-item key="5">list/update/delete</a-menu-item>
               </router-link>
               <router-link to="/axios/InsertComponent">
                 <a-menu-item key="6">insert</a-menu-item>
-              </router-link>
-              <router-link to="/axios/UpdateComponent">
-                <a-menu-item key="7">update</a-menu-item>
-              </router-link>
-              <router-link to="/axios/DeleteComponent">
-                <a-menu-item key="8">delete</a-menu-item>
               </router-link>
             </a-sub-menu>
             <a-sub-menu key="sub3">

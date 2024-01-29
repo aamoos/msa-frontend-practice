@@ -5,8 +5,6 @@ import ForComponent from "@/components/started/ForComponent.vue";
 import ClickComponent from "@/components/started/ClickComponent.vue";
 import ListComponent from "@/components/axios/ListComponent.vue";
 import InsertComponent from "@/components/axios/InsertComponent.vue";
-import UpdateComponent from "@/components/axios/UpdateComponent.vue";
-import DeleteComponent from "@/components/axios/DeleteComponent.vue";
 
 const routes = [
     //started 탭
@@ -46,16 +44,6 @@ const routes = [
         name: "InsertComponent",
         component: InsertComponent,
     },
-    {
-        path: "/axios/UpdateComponent",
-        name: "UpdateComponent",
-        component: UpdateComponent,
-    },
-    {
-        path: "/axios/DeleteComponent",
-        name: "DeleteComponent",
-        component: DeleteComponent,
-    }
 ];
 
 const router = createRouter({

@@ -19,6 +19,7 @@
     </a-form-item>
   </a-form>
 </template>
+
 <script setup>
 import { reactive, ref, toRaw, inject } from 'vue';
 const axios = inject('axios');
@@ -74,7 +75,7 @@ const resetForm = () => {
 const save = async () => {
     console.log(axios);
     try {
-        const response = await axios.post('/api/v1/axios/save', {
+        const response = await axios.post('/api/v1/axios/create', {
             title: formState.name,
             body: formState.desc
         });
