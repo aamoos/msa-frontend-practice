@@ -20,9 +20,8 @@
   </a-form>
 </template>
 <script setup>
-import { reactive, ref, toRaw } from 'vue';
-import axios from 'axios'
-
+import { reactive, ref, toRaw, inject } from 'vue';
+const axios = inject('axios');
 const formRef = ref();
 const labelCol = {
   span: 5,
@@ -71,14 +70,19 @@ const resetForm = () => {
   formRef.value.resetFields();
 };
 
-//저장
+// Save function
 const save = async () => {
-    const response = await axios.post('/api/axios/save', {
-        title: formState.name,
-        body: formState.desc
-    });
-    console.log(response);
-    // Handle the response here
+    console.log(axios);
+    try {
+        const response = await axios.post('/api/v1/axios/save', {
+            title: formState.name,
+            body: formState.desc
+        });
+        console.log(response);
+        // Handle the response here
+    } catch (error) {
+        console.error('Error occurred while saving:', error);
+    }
 };
 
 </script>
