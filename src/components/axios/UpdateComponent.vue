@@ -1,5 +1,5 @@
 <template>
-   <h2>등록</h2>
+ <h2>수정</h2>
   <a-form
     ref="formRef"
     :model="formState"
@@ -24,6 +24,7 @@
 <script setup>
 import { reactive, ref, toRaw, inject } from 'vue';
 const axios = inject('$axios');
+const router = inject('router');
 const formRef = ref();
 const labelCol = {
   span: 5,
@@ -76,9 +77,10 @@ const resetForm = () => {
 const save = async () => {
     console.log(axios);
     try {
-        const response = await axios.post('/api/v1/axios/create', {
+        const response = await axios.post('/api/v1/axios/update', {
             title: formState.name,
-            body: formState.desc
+            body: formState.desc,
+            id: router.currentRoute.value.params.id
         });
         console.log(response);
         alert("저장되었습니다.")

@@ -8,6 +8,7 @@ import { instance } from './axios'
 const app = createApp(App);
 app.use(Antd);
 app.use(router);
-app.provide('axios', instance)
+app.provide('$axios', instance);
+app.provide('router', router);
 
 app.mount('#app');

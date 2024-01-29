@@ -1,4 +1,5 @@
 <template>
+  <h2>목록</h2>
   <a-list item-layout="horizontal" :data-source="dataSource">
     <template #renderItem="{ item }">
       <a-list-item>
@@ -28,7 +29,8 @@
 
 <script setup>
 import { inject, ref, onMounted } from 'vue';
-const axios = inject('axios');
+const axios = inject('$axios');
+const router = inject('router');
 const dataSource = ref([]);
 
 //select
@@ -47,13 +49,17 @@ const fetchData = async () => {
 onMounted(fetchData);
 
 //update
-
+const updateItem = async (item) => {
+  console.log(item.id);
+  router.push("/axios/UpdateComponent/"+item.id);
+};
 
 //delete
 const deleteItem = async (item) => {
   try {
     await axios.delete(`/api/v1/axios/delete/${item.id}`);
     dataSource.value = dataSource.value.filter(i => i.id !== item.id);
+    alert("삭제되었습니다.");
   } catch (error) {
   console.error('Error occurred while deleting item:', error);
   }

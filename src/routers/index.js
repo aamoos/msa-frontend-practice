@@ -5,6 +5,7 @@ import ForComponent from "@/components/started/ForComponent.vue";
 import ClickComponent from "@/components/started/ClickComponent.vue";
 import ListComponent from "@/components/axios/ListComponent.vue";
 import InsertComponent from "@/components/axios/InsertComponent.vue";
+import UpdateComponent from "@/components/axios/UpdateComponent.vue";
 
 const routes = [
     //started 탭
@@ -43,6 +44,11 @@ const routes = [
         path: "/axios/InsertComponent",
         name: "InsertComponent",
         component: InsertComponent,
+    },
+    {
+        path: "/axios/UpdateComponent/:id",
+        name: "UpdateComponent",
+        component: UpdateComponent,
     },
 ];
 
