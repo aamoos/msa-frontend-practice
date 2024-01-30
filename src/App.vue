@@ -60,6 +60,9 @@
               <router-link to="/axios/InsertComponent">
                 <a-menu-item key="6">insert</a-menu-item>
               </router-link>
+              <router-link to="/axios/SearchComponent">
+                <a-menu-item key="7">search</a-menu-item>
+              </router-link>
             </a-sub-menu>
             <a-sub-menu key="sub3">
               <template #title>

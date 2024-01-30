@@ -77,13 +77,14 @@ const resetForm = () => {
 const save = async () => {
     console.log(axios);
     try {
-        const response = await axios.post('/api/v1/axios/update', {
+        const response = await axios.put('/api/v1/axios/update', {
             title: formState.name,
             body: formState.desc,
             id: router.currentRoute.value.params.id
         });
         console.log(response);
-        alert("저장되었습니다.")
+        alert("수정되었습니다.");
+         router.push("/axios/ListComponent");
         // Handle the response here
     } catch (error) {
         console.error('Error occurred while saving:', error);
