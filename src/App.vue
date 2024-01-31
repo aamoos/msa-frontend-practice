@@ -63,6 +63,9 @@
               <router-link to="/axios/SearchComponent">
                 <a-menu-item key="7">search</a-menu-item>
               </router-link>
+               <router-link to="/axios/PagingComponent">
+                <a-menu-item key="8">paging</a-menu-item>
+              </router-link>
             </a-sub-menu>
             <a-sub-menu key="sub3">
               <template #title>

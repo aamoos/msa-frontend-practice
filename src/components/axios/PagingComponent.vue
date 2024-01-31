@@ -24,6 +24,7 @@
       />
     </a-space>
   </div>
+  <a-pagination class="paging-container" v-model:current="current" :total="total" show-less-items @change="onPageChange" />
 </template>
 
 <style>
@@ -36,6 +37,11 @@
   display: flex;
   justify-content: center;
 }
+
+.paging-container {
+  display: flex;
+  justify-content: center;
+}
 </style>
 
 <script setup>
@@ -44,26 +50,48 @@ const axios = inject('$axios');
 //const router = inject('router');
 const dataSource = ref([]);
 const searchValue = ref('');
+const current = ref(1);
+const pageSize = 10; // 페이지당 항목 수
+const total = ref(0);
 
 //select
 const onSearch = async (searchValue) => {
- 
     try {
-        const response = await axios.get('/api/v1/axios/search', {
+        const response = await axios.get('/api/v1/axios/paging', {
             params: {
-                title: searchValue
+                title: searchValue,
+                page: current.value,
+                size: pageSize
             }
         });
-        dataSource.value = response.data.data;
+        console.log("=================")
         console.log(response);
+        console.log("=================")
+        dataSource.value = response.data.data.content;
+        total.value = response.data.data.totalElements;
         // Handle the response here
     } catch (error) {
         console.error('Error occurred while select:', error);
     }
 };
 
+// 페이지 변경 시 호출되는 함수
+const onPageChange = (page) => {
+  current.value = page;
+  onSearch(searchValue.value);
+};
+
+// 현재 페이지에 따라 표시할 데이터 계산
+const currentData = ref([]);
+const calculateCurrentData = () => {
+  const startIndex = (current.value - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  currentData.value = dataSource.value.slice(startIndex, endIndex);
+};
+
 // Call fetchData when the component is mounted
 onMounted(() => {
+    calculateCurrentData();
     onSearch(searchValue.value); // Call onSearch with initial value
 });
 

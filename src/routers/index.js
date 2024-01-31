@@ -7,6 +7,7 @@ import ListComponent from "@/components/axios/ListComponent.vue";
 import InsertComponent from "@/components/axios/InsertComponent.vue";
 import UpdateComponent from "@/components/axios/UpdateComponent.vue";
 import SearchComponent from "@/components/axios/SearchComponent.vue";
+import PagingComponent from "@/components/axios/PagingComponent.vue";
 
 const routes = [
     //started 탭
@@ -55,6 +56,11 @@ const routes = [
         path: "/axios/SearchComponent",
         name: "SearchComponent",
         component: SearchComponent,
+    },
+     {
+        path: "/axios/PagingComponent",
+        name: "PagingComponent",
+        component: PagingComponent,
     },
 ];
 
