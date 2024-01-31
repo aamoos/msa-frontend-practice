@@ -20,7 +20,7 @@
         v-model:value="value"
         placeholder="input search text"
         style="width: 200px"
-        @search="fetchData"
+        @search="onSearch"
       />
     </a-space>
   </div>
@@ -45,10 +45,14 @@ const axios = inject('$axios');
 const dataSource = ref([]);
 
 //select
-const fetchData = async () => {
-    console.log(axios);
+const onSearch = async (searchValue) => {
+    alert(searchValue);
     try {
-        const response = await axios.get('/api/v1/axios/list', {});
+        const response = await axios.get('/api/v1/axios/search', {
+            params: {
+                title: searchValue
+            }
+        });
         dataSource.value = response.data.data;
         console.log(response);
         // Handle the response here
@@ -58,6 +62,6 @@ const fetchData = async () => {
 };
 
 // Call fetchData when the component is mounted
-onMounted(fetchData);
+onMounted(onSearch);
 
 </script>
